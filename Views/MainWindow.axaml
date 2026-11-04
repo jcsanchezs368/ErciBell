@@ -1,0 +1,41 @@
+<suki:SukiWindow xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ErciBell.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ErciBell.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ErciBell">
+    
+        <Design.DataContext>
+                <vm:MainViewModel />
+        </Design.DataContext>
+        
+        <suki:SukiSideMenu IsSearchEnabled="True" 
+                           SelectedItem="{Binding NavigationService.VistaActual}"
+                           ItemsSource="{Binding NavigationService.ListaVistas }"
+                           Content="{Binding NavigationService.VistaActual}">
+                <suki:SukiSideMenu.ItemTemplate>
+                        <DataTemplate>
+                                <suki:SukiSideMenuItem Header="{Binding Titulo}" Classes = "Compact">
+                                        <suki:SukiSideMenuItem.Icon>
+                                                <avalonia:MaterialIcon Kind="{Binding Icono}" />
+                                        </suki:SukiSideMenuItem.Icon>
+                                </suki:SukiSideMenuItem>
+                        </DataTemplate>
+                </suki:SukiSideMenu.ItemTemplate>
+
+                <suki:SukiSideMenu.HeaderContent>
+                        <!-- Header Content -->
+                </suki:SukiSideMenu.HeaderContent>
+
+                <suki:SukiSideMenu.FooterContent>
+                        <!-- Footer Content -->
+                </suki:SukiSideMenu.FooterContent>
+        </suki:SukiSideMenu>
+
+</suki:SukiWindow>
