@@ -2,10 +2,10 @@
 
 public class Categoria
 {
-    private int id { get; set; }
-    private string nombre { get; set; }
-    private bool tieneGluten { get; set; }
-    private bool esVegano { get; set; }
+    public int Id { get; set; }
+    public string Nombre { get; set; }
+    public bool TieneGluten { get; set; }
+    public bool EsVegano { get; set; }
 
     public Categoria()
     {
@@ -14,16 +14,16 @@ public class Categoria
     
     public Categoria(int  id, string nombre, bool tieneGluten, bool esVegano)
     {
-        this.id = id;
-        this.nombre = nombre;
-        this.tieneGluten = tieneGluten;
-        this.esVegano = esVegano;
+        Id = id;
+        Nombre = nombre;
+        TieneGluten = tieneGluten;
+        EsVegano = esVegano;
     }
     
     public Categoria(string nombre, bool tieneGluten, bool esVegano)
     {
-        this.nombre = nombre;
-        this.tieneGluten = tieneGluten;
-        this.esVegano = esVegano;
+        Nombre = nombre;
+        TieneGluten = tieneGluten;
+        EsVegano = esVegano;
     }
 }

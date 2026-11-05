@@ -2,7 +2,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:viewModels="clr-namespace:ErciBell.ViewModels"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ErciBell.Views.ConsultarAlimentoView">
-    <TextBlock Text="Consultar alimento" />
+             x:Class="ErciBell.Views.ConsultarAlimentoView"
+             x:DataType="viewModels:ConsultarAlimentoViewModel">
+    
+    <StackPanel>
+        <ListBox ItemsSource="{Binding ListaAlimentos}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <suki:GlassCard>
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto">
+                            <asyncImageLoader:AdvancedImage Stretch="Fill" Source="https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos.jpg" Grid.Column="0" Width="150" Height="150" Margin="0 0 15 0" />
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{Binding Nombre}" />
+                                <TextBlock Text="{Binding Descripcion}" />
+                                <TextBlock Text="{Binding Precio}" />
+                            </StackPanel>
+                        </Grid>
+                    </suki:GlassCard>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
 </UserControl>

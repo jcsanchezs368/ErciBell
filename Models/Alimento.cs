@@ -4,12 +4,12 @@ namespace ErciBell.Models;
 
 public class Alimento
 {
-    private Guid id { get; set; }
-    private string nombre { get; set; }
-    private string descripcion { get; set; }
-    private double precio { get; set; }
-    private Categoria categoria { get; set; }
-    private Menu menu { get; set; }
+    public Guid Id { get; set; }
+    public string Nombre { get; set; }
+    public string Descripcion { get; set; }
+    public double Precio { get; set; }
+    public Categoria Categoria { get; set; }
+    public Menu Menu { get; set; }
 
     public Alimento()
     {
@@ -18,21 +18,21 @@ public class Alimento
     
     public Alimento(Guid id, string nombre, string descripcion, double precio, Categoria categoria, Menu menu)
     {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.categoria = categoria;
-        this.menu = menu;
+        Id = id;
+        Nombre = nombre;
+        Descripcion = descripcion;
+        Precio = precio;
+        Categoria = categoria;
+        Menu = menu;
     }
     
     public Alimento(string nombre, string descripcion, double precio, Categoria categoria, Menu menu)
     {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.categoria = categoria;
-        this.menu = menu;
+        Nombre = nombre;
+        Descripcion = descripcion;
+        Precio = precio;
+        Categoria = categoria;
+        Menu = menu;
     }
     
     

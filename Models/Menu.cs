@@ -2,9 +2,9 @@
 
 public class Menu
 {
-    private int id { get; set; }
-    private string nombre { get; set; }
-    private bool disponible { get; set; }
+    public int Id { get; set; }
+    public string Nombre { get; set; }
+    public bool Disponible { get; set; }
 
     public Menu()
     {
@@ -13,14 +13,14 @@ public class Menu
     
     public Menu(int id, string nombre, bool disponible)
     {
-        this.id = id;
-        this.nombre = nombre;
-        this.disponible = disponible;
+        Id = id;
+        Nombre = nombre;
+        Disponible = disponible;
     }
     
     public Menu(string nombre, bool disponible)
     {
-        this.nombre = nombre;
-        this.disponible = disponible;
+        Nombre = nombre;
+        Disponible = disponible;
     }
 }
