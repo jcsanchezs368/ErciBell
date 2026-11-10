@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Views/BienvenidaView.axaml" value="ErciBell.csproj" />
+        <entry key="Views/ConsultarAlimentoView.axaml" value="ErciBell.csproj" />
+        <entry key="Views/CrearCategoriaView.axaml" value="ErciBell.csproj" />
+        <entry key="Views/CrearMenuView.axaml" value="ErciBell.csproj" />
+        <entry key="Views/Dialogs/EditarAlimentoDialog.axaml" value="ErciBell.csproj" />
+        <entry key="Views/MainWindow.axaml" value="ErciBell.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

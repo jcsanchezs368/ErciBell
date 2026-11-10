@@ -10,35 +10,32 @@
              x:Class="ErciBell.Views.ConsultarAlimentoView"
              x:DataType="viewModels:ConsultarAlimentoViewModel">
     
-    <StackPanel>
-        
-        <StackPanel>
-            <dialogHostAvalonia:DialogHost 
-                ZIndex="3"
-                Identifier="EditarAlimentoDialog" CloseOnClickAway="True">
-                <dialogHostAvalonia:DialogHost.DialogContent/>
-            </dialogHostAvalonia:DialogHost>
-        </StackPanel>
-        <ListBox ItemsSource="{Binding ListaAlimentos}" SelectedItem="{Binding AlimentoSeleccionado}">
-            <Interaction.Behaviors>
-                <EventTriggerBehavior EventName="DoubleTapped">
-                    <InvokeCommandAction Command="{Binding AbrirEditarAlimentoDialogCommand}"/>
-                </EventTriggerBehavior>
-            </Interaction.Behaviors>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <suki:GlassCard>
-                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto">
-                            <asyncImageLoader:AdvancedImage Stretch="Fill" Source="https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos.jpg" Grid.Column="0" Width="150" Height="150" Margin="0 0 15 0" />
-                            <StackPanel Grid.Column="1">
-                                <TextBlock Text="{Binding Nombre}" FontWeight="Heavy" FontSize="25" />
-                                <TextBlock Text="{Binding Descripcion}" FontSize="16" />
-                                <TextBlock Text="{Binding Precio, StringFormat='{}{0} €'}" FontSize="20" />
-                            </StackPanel>
-                        </Grid>
-                    </suki:GlassCard>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </StackPanel>
+    <Grid ShowGridLines="True" ColumnDefinitions="*" RowDefinitions="*">
+        <dialogHostAvalonia:DialogHost 
+            ZIndex="10"
+            Identifier="EditarAlimentoDialog" CloseOnClickAway="True" Grid.Column="0" Grid.Row="0">
+            <dialogHostAvalonia:DialogHost.DialogContent/>
+            <ListBox ItemsSource="{Binding ListaAlimentos}" SelectedItem="{Binding AlimentoSeleccionado}">
+                <Interaction.Behaviors>
+                    <EventTriggerBehavior EventName="DoubleTapped">
+                        <InvokeCommandAction Command="{Binding AbrirEditarAlimentoDialogCommand}"/>
+                    </EventTriggerBehavior>
+                </Interaction.Behaviors>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <suki:GlassCard>
+                            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto">
+                                <asyncImageLoader:AdvancedImage Stretch="UniformToFill" Source="https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos.jpg" Grid.Column="0" Width="150" Height="150" Margin="0 0 15 0" />
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="{Binding Nombre}" FontWeight="Heavy" FontSize="25" />
+                                    <TextBlock Text="{Binding Descripcion}" FontSize="16" />
+                                    <TextBlock Text="{Binding Precio, StringFormat='{}{0} €'}" FontSize="20" />
+                                </StackPanel>
+                            </Grid>
+                        </suki:GlassCard>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </dialogHostAvalonia:DialogHost>
+    </Grid>
 </UserControl>

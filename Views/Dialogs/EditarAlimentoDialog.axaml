@@ -6,17 +6,17 @@
              xmlns:suki="https://github.com/kikipoulet/SukiUI"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1080"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="800"
              x:Class="ErciBell.Dialogs.EditarAlimentoDialog"
              x:DataType="viewModels:ConsultarAlimentoViewModel"
-             Width="800"
-             Height="1080">
+             Width="650"
+             >
     
     <Design.DataContext>
         <viewModels:ConsultarAlimentoViewModel/>
     </Design.DataContext>
     
-    <StackPanel Margin="100">
+    <StackPanel Margin="20">
         <TextBlock Text="Nombre" FontWeight="Bold"/>
         <TextBox Text="{Binding AlimentoSeleccionado.Nombre}" />
         <TextBlock Margin="0, 20,0,0" Text="Categoría" FontWeight="Bold"/>
@@ -39,26 +39,37 @@
             </StackPanel>
             
             <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                <suki:GlassCard Grid.Row="0" Grid.Column="0" Width="200" Height="200">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <avalonia:MaterialIcon Kind="Image" Width="50" Height="50"/>
-                        <Carousel ItemsSource="{Binding AlimentoSeleccionado.UrlImagenes}" SelectedIndex="{Binding IndiceImagen}" SelectedItem="{Binding AlimentoSeleccionado}">
-                            <Carousel.PageTransition>
-                                <CrossFade Duration="0:00:00.300" />
-                            </Carousel.PageTransition>
-                            <Carousel.ItemTemplate>
-                                <DataTemplate>
-                                    <asyncImageLoader:AdvancedImage Stretch="Uniform" Source="{Binding}" />
-                                </DataTemplate>
-                            </Carousel.ItemTemplate>
-                        </Carousel>
-                    </StackPanel>
-                </suki:GlassCard>
+                <StackPanel Orientation="Horizontal">
+                    <Button Height="200" Width="35" Padding="0" Command="{Binding ImagenAnteriorCommand}">
+                        <avalonia:MaterialIcon Kind="ArrowLeft" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                    
+                    <suki:GlassCard Grid.Row="0" Grid.Column="0" Width="200" Height="200">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <avalonia:MaterialIcon Kind="Image" Width="100" Height="50" IsVisible="{Binding MostrarIconoImagenes}"/>
+                            <Carousel ItemsSource="{Binding AlimentoSeleccionado.UrlImagenes}" SelectedIndex="{Binding IndiceImagen}" SelectedItem="{Binding AlimentoSeleccionado}">
+                                <Carousel.PageTransition>
+                                    <CrossFade Duration="0:00:00.300" />
+                                </Carousel.PageTransition>
+                                <Carousel.ItemTemplate>
+                                    <DataTemplate>
+                                        <asyncImageLoader:AdvancedImage Stretch="Uniform" Source="{Binding}" />
+                                    </DataTemplate>
+                                </Carousel.ItemTemplate>
+                            </Carousel>
+                        </StackPanel>
+                    </suki:GlassCard>
+                    
+                    <Button Height="200" Width="35" Padding="0" Command="{Binding SiguienteImagenCommand}">
+                        <avalonia:MaterialIcon Kind="ArrowRight" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                    
+                </StackPanel>
                 <Button Content="Subir imagenes" Margin="0, 15"/>
             </StackPanel>
         </Grid>
 
-        <Button Content="Borrar imagen" />
+        <Button Content="Borrar imagen"  />
         
         <Button Content="Editar Alimento" />
         
