@@ -13,6 +13,7 @@ public partial class MainViewModel : ViewModelBase
         NavigationService.ListaVistas.Add(new ConsultarAlimentoViewModel(NavigationService));
         NavigationService.ListaVistas.Add(new CrearCategoriaViewModel(NavigationService));
         NavigationService.ListaVistas.Add(new CrearMenuViewModel(NavigationService));
+        NavigationService.ListaVistas.Add(new CrearAlimentoViewModel(NavigationService));
         NavigationService.Navegar("Inicio");
     }
 }

@@ -2,7 +2,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:viewModels="clr-namespace:ErciBell.ViewModels"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ErciBell.Views.BienvenidaView">
-    <TextBlock Text="Bienvenida" />
+             x:Class="ErciBell.Views.BienvenidaView"
+             x:DataType="viewModels:BienvenidaViewModel">
+    <UserControl.Background>
+        <ImageBrush Source="avares://ErciBell/Assets/ercibell-bg.png"
+                    Stretch="Fill"/>
+    </UserControl.Background>
+    <StackPanel Margin="100">
+        <Image Source="avares://ErciBell/Assets/ercibell-logo.png"
+               Height="150" Width="150"/>
+        <TextBlock Text="¡Bienvenido al portal de ErciBell!"
+                   TextAlignment="Center"
+                   FontSize="36"/>
+    </StackPanel>
 </UserControl>
