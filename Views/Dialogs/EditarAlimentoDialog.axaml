@@ -1,0 +1,67 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:ErciBell.ViewModels"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1080"
+             x:Class="ErciBell.Dialogs.EditarAlimentoDialog"
+             x:DataType="viewModels:ConsultarAlimentoViewModel"
+             Width="800"
+             Height="1080">
+    
+    <Design.DataContext>
+        <viewModels:ConsultarAlimentoViewModel/>
+    </Design.DataContext>
+    
+    <StackPanel Margin="100">
+        <TextBlock Text="Nombre" FontWeight="Bold"/>
+        <TextBox Text="{Binding AlimentoSeleccionado.Nombre}" />
+        <TextBlock Margin="0, 20,0,0" Text="Categoría" FontWeight="Bold"/>
+        <TextBox Text="{Binding AlimentoSeleccionado.Categoria.Nombre}" />
+        <TextBlock Margin="0, 20,0,0" Text="Menú" FontWeight="Bold"/>
+        <TextBox Text="{Binding AlimentoSeleccionado.Menu.Nombre}" />
+        <TextBlock Margin="0, 20,0,0" Text="Precio" FontWeight="Bold"/>
+        <TextBox Text="{Binding AlimentoSeleccionado.Precio}" />
+        <TextBlock Margin="0, 20,0,0" Text="imagenes" FontWeight="Bold"/>
+        
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+            <StackPanel HorizontalAlignment="Left">
+                <suki:GlassCard Grid.Row="0" Grid.Column="0" Width="200" Height="200">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <avalonia:MaterialIcon Kind="Image" Width="50" Height="50"/>
+                        <TextBlock Text="Subir imagenes" FontSize="20"/>
+                    </StackPanel>
+                </suki:GlassCard>
+                <Button Content="Subir imagenes" Margin="0, 15"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <suki:GlassCard Grid.Row="0" Grid.Column="0" Width="200" Height="200">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <avalonia:MaterialIcon Kind="Image" Width="50" Height="50"/>
+                        <Carousel ItemsSource="{Binding AlimentoSeleccionado.UrlImagenes}" SelectedIndex="{Binding IndiceImagen}" SelectedItem="{Binding AlimentoSeleccionado}">
+                            <Carousel.PageTransition>
+                                <CrossFade Duration="0:00:00.300" />
+                            </Carousel.PageTransition>
+                            <Carousel.ItemTemplate>
+                                <DataTemplate>
+                                    <asyncImageLoader:AdvancedImage Stretch="Uniform" Source="{Binding}" />
+                                </DataTemplate>
+                            </Carousel.ItemTemplate>
+                        </Carousel>
+                    </StackPanel>
+                </suki:GlassCard>
+                <Button Content="Subir imagenes" Margin="0, 15"/>
+            </StackPanel>
+        </Grid>
+
+        <Button Content="Borrar imagen" />
+        
+        <Button Content="Editar Alimento" />
+        
+        
+    </StackPanel>
+</UserControl>

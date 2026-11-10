@@ -1,4 +1,5 @@
 ﻿using System;
+using Avalonia.Collections;
 
 namespace ErciBell.Models;
 
@@ -10,7 +11,7 @@ public class Alimento
     public double Precio { get; set; }
     public Categoria Categoria { get; set; }
     public Menu Menu { get; set; }
-
+    public AvaloniaList<string> UrlImagenes { get; set; }
     public Alimento()
     {
         
